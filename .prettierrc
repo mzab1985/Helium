@@ -1,0 +1,9 @@
+{
+  "printWidth": 9999,           
+  "htmlWhitespaceSensitivity": "ignore", 
+  "proseWrap": "never",          
+  "singleQuote": true,           
+  "bracketSameLine": true,
+  "tabWidth": 4,                
+  "useTabs": true                
+}
