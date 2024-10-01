@@ -1,6 +1,17 @@
 // Configuration flags
 const useNProgress = false; // Set to true to use NProgress, false to disable
 const useTimer = true; // Set to true to enable timing logs, false to disable
+const contentElement = document.querySelector('.content');
+
+
+// Before adding new event listeners, remove old ones
+const removeEventListeners = () => {
+    removeEventListeners();  // Clean up before adding new ones
+    document.querySelectorAll('a.spa-navigate').forEach(link => {
+        link.removeEventListener('click', handleNavigation);
+    });
+};
+
 
 // Generic function to handle SPA navigation using axios
 function setupSPANavigation() {
@@ -31,11 +42,17 @@ function setupSPANavigation() {
             }
 
             // Fetch the new content using Axios
+            // axios.get(url, {
+            //     headers: {
+            //         'Cache-Control': 'no-cache',
+            //         'Pragma': 'no-cache',
+            //         'Expires': '0'
+            //     }
+            // })
+            // Fetch JSON data instead of the full HTML
             axios.get(url, {
                 headers: {
-                    'Cache-Control': 'no-cache',
-                    'Pragma': 'no-cache',
-                    'Expires': '0'
+                    'Accept': 'application/json' // Indicate you're expecting JSON
                 }
             })
             .then(response => {
@@ -62,7 +79,7 @@ function setupSPANavigation() {
                 const newContent = tempDiv.querySelector('.content').innerHTML;
 
                 // Replace the existing content with the new HTML
-                document.querySelector('.content').innerHTML = newContent;
+                contentElement.innerHTML = newContent;
 
                 // Calculate the time taken to update the DOM if useTimer is true
                 if (useTimer) {
@@ -91,6 +108,8 @@ function setupSPANavigation() {
         });
     });
 }
+
+
 
 // Handle back/forward navigation
 window.addEventListener('popstate', function(event) {
@@ -135,7 +154,7 @@ window.addEventListener('popstate', function(event) {
             }
 
             // Re-initialize SPA navigation for the new content
-            setupSPANavigation();
+            // setupSPANavigation();
         })
         .catch(error => {
             console.error('There has been a problem with your axios operation:', error);
