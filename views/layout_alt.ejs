@@ -9,11 +9,13 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
 		<link rel="stylesheet" href="/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
 		<link rel="stylesheet" href="/styles/tailwind.css" />
+		<script src="/js/page.js" defer></script>
+		
 
 		<title>Dashboard | Notus Tailwind JS by Creative Tim</title>
 	</head>
 
-	<body  class="text-blueGray-700 antialiased" data-layout-type="layout">
+	<body  class="text-blueGray-700 antialiased" data-layout-type="layout_alt">
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root">
 			<%- include('partials/sidebar') %>
@@ -24,9 +26,7 @@
 			
                 <div class="relative bg-info md:pt-32 pb-32 pt-12">
 					<div class="px-4 md:px-10 mx-auto w-full">
-						<div class="card-stats">
-                            <%- include('partials/card-stats') %>
-                        </div>
+
 					</div>
 				</div>
 
@@ -40,8 +40,8 @@
 		<!-- <script src='/nprogress.js'></script> -->
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script src="https://unpkg.com/morphdom@2.4.1/dist/morphdom-esm.js"></script>
-
 		<script type="module" src="/js/axios_morphdom_diff_layouts.js"></script>
+	
 		<!-- Include your JS -->
 	</body>
 </html>

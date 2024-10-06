@@ -1,3 +1,6 @@
+// This fetch is without morphdom, and replaces the full html of the page with the new one, then attaches event listeners
+// sometimes the page shivers
+
 // Set this to true or false to control the usage of SPA navigation
 const useSPANavigation = true;
 
