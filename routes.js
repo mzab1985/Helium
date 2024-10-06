@@ -1,5 +1,6 @@
 // Import the express dependency
-const express = require('express');
+// const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // Define your routes with layouts.
