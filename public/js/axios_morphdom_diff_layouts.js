@@ -1,3 +1,5 @@
+// Iteraion no.: 5
+
 import morphdom from 'https://cdn.skypack.dev/morphdom';
 
 const useTimer = true; // Set to true to enable timing logs, false to disable
